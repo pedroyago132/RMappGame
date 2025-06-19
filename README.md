@@ -4,7 +4,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 ## Setando Filtragem de personagens e env.
 
-# PROJETO EM ANDAMENTO, FINALIZO ATÉ AS 18:00 - cou precisar só mais alguns minutos ou 1 hora -  mas tenho até então.
+# PROJETO EM ANDAMENTO, FINALIZO ATÉ AS 18:00 - vou precisar só de mais alguns minutos ou 1 hora -  mas tenho até então.
 ![image1](https://github.com/user-attachments/assets/823bbce7-6f32-43eb-8cee-a824c8e95b44)
 
 ![image2](https://github.com/user-attachments/assets/47c50fcf-d9ab-465d-a411-5d4d5c0b0e20)
