@@ -24,11 +24,14 @@ import { Character } from '../../Globals/interfaces';
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-type PageViewCharacterProps = {
-  route: RouteProp<CharacterPropsPageView, 'character'>;
-  navigation: NativeStackScreenProps<RootStackParamList, 'characterPageView'>;
-};
+type CharacterPageRouteProp = RouteProp<RootStackParamList, 'characterPageView'>;
+type CharacterPageNavigationProp = NativeStackScreenProps<RootStackParamList, 'characterPageView'>;
 
+
+type PageViewCharacterProps = {
+  route: CharacterPageRouteProp;
+  navigation: CharacterPageNavigationProp;
+};
 export const PageViewCharacter = ({ route }:PageViewCharacterProps) => {
   // Supondo que o personagem é passado por parâmetro de navegação
   const character = route.params?.character
