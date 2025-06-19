@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, ActivityIndicator, StyleSheet, Text, View, Image } from 'react-native';
+import { FlatList, ActivityIndicator, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 import { useAppContext } from '../../state/GlobalStateContext/AppContext';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -46,9 +46,9 @@ const styles = StyleSheet.create({
   },
 });
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
+type Props = NativeStackScreenProps<RootStackParamList, 'charactersList'>;
 
-export const CharacterList = () => {
+export const CharacterList = ({navigation} : Props) => {
   const { state, fetchCharacters } = useAppContext();
 
   React.useEffect(() => {
@@ -56,13 +56,13 @@ export const CharacterList = () => {
   }, [state.nextPage]);
 
   const renderItem = ({ item }: { item: Character }) => (
-    <View style={styles.item}>
+    <TouchableOpacity  onPress={() => navigation.navigate('characterPageView',{character:item})} style={styles.item}>
       <Image source={{ uri: item.image }} style={styles.image} />
       <View style={styles.textContainer}>
         <Text style={styles.name}>{item.name}</Text>
         <Text style={styles.species}>{item.species}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 
   const renderFooter = () => {
@@ -86,9 +86,7 @@ export const CharacterList = () => {
     <View>
       {state.loading && <p>Carregando...</p>}
       {state.error && <p>Erro: {state.error}</p>}
-      <StyledButton onPress={() => console.log('STATE::::', state)} >
-        <ButtonText />
-      </StyledButton>
+
 
       <FlatList
         data={state.characters}

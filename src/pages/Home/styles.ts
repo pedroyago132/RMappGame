@@ -10,6 +10,7 @@ export const Container = styled(View)`
   background-color: #03053d;
   align-items:center;
   justify-content:center;
+  width:100%;
 `;
 
 export const BackgroundImage = styled(ImageBackground)`
@@ -19,17 +20,17 @@ export const BackgroundImage = styled(ImageBackground)`
 `;
 
 export const TitleContainer = styled(View)`
-  margin-bottom: 40px;
+  width:100%;
+  height:20%;
   align-items: center;
+  justify-content:center;
 `;
 
 export const GameTitle = styled(Text)`
   font-size: 36px;
   font-weight: 800;
   color: #00ff9d;
-  text-transform: uppercase;
   text-shadow: 0 0 10px rgba(0, 255, 157, 0.7);
-  margin-bottom: 10px;
 `;
 
 export const Subtitle = styled(Text)`

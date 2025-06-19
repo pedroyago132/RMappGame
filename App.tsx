@@ -14,6 +14,7 @@ import { CharacterList } from './src/pages/CharacterList';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { RootStackParamList } from './src/Globals/types';
 import { AppProvider } from './src/state/GlobalStateContext/AppContext';
+import { PageViewCharacter } from './src/pages/PageViewCharacter';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -44,6 +45,12 @@ function App() {
               name="charactersList"
               component={CharacterList}
               options={{ title: 'Personagens' }}
+            />
+
+               <Stack.Screen
+              name="characterPageView"
+              component={PageViewCharacter}
+              options={{ title: 'Seu Personagem' }}
             />
 
 

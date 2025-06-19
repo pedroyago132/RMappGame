@@ -13,10 +13,17 @@ export type CharactersState = {
   hasMore: boolean;
 };
 
+export type CharacterPropsPageView = {
+  character: any;
+  route(): void;
+  navigate():void;
+};
+
 export type RootStackParamList = {
   navigate(): void;
   Home: undefined;
   charactersList:undefined;
+  characterPageView:{character:Character};
 };
 
 // Extend o tipo global para usar em qualquer lugar
