@@ -7,8 +7,8 @@ import { ClientesAnalyticsProps, RootStackParamList, StackParamListDataClient } 
 import { Cliente } from '../../Globals/interfaces';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Height } from '@mui/icons-material';
-import { ClienteCard, Nome, TextContainer, VendasCount } from '../CharacterList/styles';
-import { Email } from '../ClientesDetail/styles';
+import { ClienteCard, Nome, TextContainer, VendasCount } from '../ClientsList/styles';
+import { Email } from '../ClienteDetail/styles';
  
 
 type Props = NativeStackScreenProps<StackParamListDataClient, 'Graphs'>;

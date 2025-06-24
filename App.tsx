@@ -10,11 +10,11 @@ import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { HomeGame } from './src/pages/Home';
-import { CharacterList } from './src/pages/CharacterList';
+import { CharacterList } from './src/pages/ClientsList';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { RootStackParamList, StackParamListDataClient } from './src/Globals/types';
 import { AppProvider } from './src/state/GlobalStateContext/AppContext';
-import { PageViewCharacter } from './src/pages/ClientesDetail';
+import { PageViewCharacter } from './src/pages/ClienteDetail';
 import { Graphs } from './src/pages/Graphs';
 
 const Stack = createNativeStackNavigator<StackParamListDataClient>();
