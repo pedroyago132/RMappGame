@@ -6,6 +6,8 @@ import { CharactersState } from '../../Globals/types';
 
 export const GET_CHARACTERS_SUCESS_ENUM = 'GET_CHARACTERS_SUCCESS' ;
 
+export const GET_GRAPHS_DETAIL = 'GET_GRAPHS_DETAIL' ;
+
 
 export const getCharactersSuccess = (characters: Character[], nextPage: string | null) => ({
   type: GET_CHARACTERS_SUCESS_ENUM,

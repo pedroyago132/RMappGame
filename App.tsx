@@ -12,11 +12,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { HomeGame } from './src/pages/Home';
 import { CharacterList } from './src/pages/CharacterList';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { RootStackParamList } from './src/Globals/types';
+import { RootStackParamList, StackParamListDataClient } from './src/Globals/types';
 import { AppProvider } from './src/state/GlobalStateContext/AppContext';
-import { PageViewCharacter } from './src/pages/PageViewCharacter';
+import { PageViewCharacter } from './src/pages/ClientesDetail';
+import { Graphs } from './src/pages/Graphs';
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator<StackParamListDataClient>();
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -42,14 +43,20 @@ function App() {
               }}
             />
             <Stack.Screen
-              name="charactersList"
+              name="ClientesList"
               component={CharacterList}
               options={{ title: 'Personagens' }}
             />
 
                <Stack.Screen
-              name="characterPageView"
+              name="ClienteDetail"
               component={PageViewCharacter}
+              options={{ title: 'Seu Personagem' }}
+            />
+
+                 <Stack.Screen
+              name="Graphs"
+              component={Graphs}
               options={{ title: 'Seu Personagem' }}
             />
 

@@ -17,18 +17,18 @@ import {
   useNavigation,
 } from '@react-navigation/native';
 import { NativeStackNavigationProp, NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../Globals/types';
+import { RootStackParamList, StackParamListDataClient, StackParamListDataClientDetail } from '../../Globals/types';
 
 
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
+type Props = NativeStackScreenProps<StackParamListDataClientDetail, 'Home'>;
 
 export const HomeGame = ({navigation} : Props) => {
   
   const options = [
     {
       id: 1,
-      title: 'Ver Personagens',
+      title: 'Clientes',
       description: 'Explore todos os personagens do jogo',
       enabled: true,
   
@@ -49,21 +49,26 @@ export const HomeGame = ({navigation} : Props) => {
     },
     {
       id: 4,
-      title: 'Opções',
+      title: 'Graphs',
       description: 'Ajuste as configurações do jogo',
       enabled: true,
 
     }
   ];
 
-  console.log('navigation:::::::::',navigation)
+  const hd = (option:any) => {
+    switch(option.id){
+      case 1:
+        return navigation.navigate('ClienteDetail',{item:option})
+    }
+  }
+
 
   return (
     <Container>
       
         <TitleContainer>
-          <GameTitle>Rick and Morty</GameTitle>
-          <Subtitle>RMAP GAME</Subtitle>
+          <Subtitle>CRM</Subtitle>
         </TitleContainer>
 
         <OptionsContainer>
@@ -73,7 +78,7 @@ export const HomeGame = ({navigation} : Props) => {
               enabled={option.enabled}
               activeOpacity={0.7}
               disabled={!option.enabled}
-              onPress={() => option.id == 1 ? navigation.navigate("charactersList") : null}
+              onPress={() =>hd(option)}
             >
               <OptionIcon enabled={option.enabled}>
           

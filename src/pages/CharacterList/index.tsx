@@ -3,9 +3,9 @@ import { FlatList, ActivityIndicator, StyleSheet, Text, View, Image, TouchableOp
 
 import { useAppContext } from '../../state/GlobalStateContext/AppContext';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../Globals/types';
-import { StyledButton, ButtonText } from './styles';
-import { Character } from '../../Globals/interfaces';
+import { RootStackParamList, StackParamListDataClient } from '../../Globals/types';
+import { StyledButton, ButtonText, ClienteCard, ClienteImage, TextContainer, Nome, Email, VendasCount } from './styles';
+import { Character, Cliente } from '../../Globals/interfaces';
 
 const styles = StyleSheet.create({
   container: {
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   },
 });
 
-type Props = NativeStackScreenProps<RootStackParamList, 'charactersList'>;
+type Props = NativeStackScreenProps<StackParamListDataClient, 'ClientesList'>;
 
 export const CharacterList = ({navigation} : Props) => {
   const { state, fetchCharacters } = useAppContext();
@@ -55,14 +55,17 @@ export const CharacterList = ({navigation} : Props) => {
     fetchCharacters().catch(console.error);
   }, [state.nextPage]);
 
-  const renderItem = ({ item }: { item: Character }) => (
-    <TouchableOpacity  onPress={() => navigation.navigate('characterPageView',{character:item})} style={styles.item}>
-      <Image source={{ uri: item.image }} style={styles.image} />
-      <View style={styles.textContainer}>
-        <Text style={styles.name}>{item.name}</Text>
-        <Text style={styles.species}>{item.species}</Text>
-      </View>
-    </TouchableOpacity>
+ const renderItem = ({ item }: { item: Cliente }) => (
+    <ClienteCard onPress={() => navigation.navigate('ClienteDetail', { cliente: item })}>
+   
+      <TextContainer>
+        <Nome>{item.info.nomeCompleto}</Nome>
+        <Email>{item.info.detalhes.email}</Email>
+        <VendasCount>
+          {item.estatisticas.vendas[0].valor} vendas
+        </VendasCount>
+      </TextContainer>
+    </ClienteCard>
   );
 
   const renderFooter = () => {
@@ -89,9 +92,9 @@ export const CharacterList = ({navigation} : Props) => {
 
 
       <FlatList
-        data={state.characters}
+        data={state.clients.data.clientes}
         renderItem={renderItem}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => item.info.nomeCompleto}
         onEndReached={() => {
           if (state.nextPage) {
             fetchCharacters();
