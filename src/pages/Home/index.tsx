@@ -17,11 +17,11 @@ import {
   useNavigation,
 } from '@react-navigation/native';
 import { NativeStackNavigationProp, NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList, StackParamListDataClient, StackParamListDataClientDetail } from '../../Globals/types';
+import { RootStackParamList, StackParamListDataClient, StackParamListDataClientDetail, StackParamListDataClientPropsDetail } from '../../Globals/types';
 
 
 
-type Props = NativeStackScreenProps<StackParamListDataClientDetail, 'Home'>;
+type Props = NativeStackScreenProps<StackParamListDataClientPropsDetail, 'Home'>;
 
 export const HomeGame = ({navigation} : Props) => {
   
@@ -59,8 +59,11 @@ export const HomeGame = ({navigation} : Props) => {
   const hd = (option:any) => {
     switch(option.id){
       case 1:
-        return navigation.navigate('ClienteDetail',{item:option})
+        return navigation.navigate('ClientesList')
+        case 4:
+          return navigation.navigate('Graphs')
     }
+
   }
 
 

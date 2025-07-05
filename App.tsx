@@ -57,7 +57,7 @@ function App() {
                  <Stack.Screen
               name="Graphs"
               component={Graphs}
-              options={{ title: 'Seu Personagem' }}
+              options={{ title: 'Gráficos' }}
             />
 
 

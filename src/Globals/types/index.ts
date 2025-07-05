@@ -1,5 +1,6 @@
 import { RouteProp } from "@react-navigation/native";
 import { ApiResponseClient, Character, Cliente, InfoCliente } from "../interfaces";
+import { PropsCardComponent } from "../../pages/Graphs";
 
 export type CharactersContextType = {
   state: CharactersState;
@@ -29,7 +30,7 @@ type AppState = {
   clients: {
     data: ClientsData;
   };
- 
+
 };
 
 // Props do componente (caso receba o state por props)
@@ -53,7 +54,7 @@ export type CharactersState = {
       mostFrequencyBuyClientName: string
     }
   }],
-  clients:ApiResponseClient
+  clients: ApiResponseClient
 };
 
 export type CharacterPropsPageView = {
@@ -73,7 +74,8 @@ export type RootStackParamList = {
   navigate(): void;
   Home: undefined;
   ClientesList: undefined;
-  ClientesDetail: { cliente: Cliente,item:any };
+  ClientesDetail: { cliente: Cliente, item: any };
+  Grapsh:undefined
 };
 
 // Extend o tipo global para usar em qualquer lugar
@@ -85,19 +87,33 @@ declare global {
 
 export type StackParamListDataClient = {
 
-      Home:undefined;
+  Home: undefined;
   ClientesList: undefined;
-  ClienteDetail: { cliente: Cliente};
-  Graphs:{cliente:Cliente};
+  ClienteDetail: { cliente: Cliente };
+  Graphs: undefined;
+};
+
+export type StackParamListDataClientPropsDetail = {
+  navigate(): void;
+  Home: undefined;
+  ClientesList: undefined;
+  ClienteDetail: { cliente: Cliente };
+  Graphs: undefined;
 };
 
 export type StackParamListDataClientDetail = {
-
-      Home:undefined;
+  navigate(): void;
+  Home: undefined;
   ClientesList: undefined;
-  ClienteDetail: { item:any };
-  Graphs:{cliente:Cliente};
+  ClienteDetail: { item: any };
+  Graphs: undefined;
 };
+
+export interface Props {
+  navigation: PropsCardComponent['navigation'];
+  clienteMaisVenda:Cliente;
+
+}
 
 export type Action =
   | {

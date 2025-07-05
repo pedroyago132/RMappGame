@@ -57,6 +57,7 @@ export interface Redundante {
 
 
 export interface ApiResponseClient {
+
   data: {
     clientes: Cliente[];
   };
