@@ -27,7 +27,7 @@ type CharacterPageRouteProp = RouteProp<StackParamListDataClient, 'ClienteDetail
 type CharacterPageNavigationProp = NativeStackScreenProps<StackParamListDataClient, 'ClienteDetail'>;
 
 
-export const PageViewCharacter = ({ route }:ClienteDetailProps) => {
+export const ClientsDetail = ({ route }:ClienteDetailProps) => {
   // Supondo que o personagem é passado por parâmetro de navegação
   const cliente = route.params.cliente
 

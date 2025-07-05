@@ -10,7 +10,7 @@ import { ApiResponseClient, Character, Cliente } from '../../Globals/interfaces'
 
 type Props = NativeStackScreenProps<StackParamListDataClient, 'ClientesList'>;
 
-export const CharacterList = ({navigation} : Props) => {
+export const ClientsList = ({navigation} : Props) => {
   const { state, fetchCharacters } = useAppContext();
 
   React.useEffect(() => {
