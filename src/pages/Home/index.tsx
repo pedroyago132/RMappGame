@@ -29,7 +29,7 @@ export const HomeGame = ({navigation} : Props) => {
     {
       id: 1,
       title: 'Clientes',
-      description: 'Explore todos os personagens do jogo',
+      description: 'Carteira de Clientes',
       enabled: true,
   
     },
@@ -50,7 +50,7 @@ export const HomeGame = ({navigation} : Props) => {
     {
       id: 4,
       title: 'Graphs',
-      description: 'Ajuste as configurações do jogo',
+      description: 'Gráficos dos clientes',
       enabled: true,
 
     }
